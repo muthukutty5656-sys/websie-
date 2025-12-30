@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fix Focal Technology | CCTV & Automation Solutions</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="fix-focal-logo.png" />
+
+  <!-- External Stylesheet (if exists) -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <style>
+    :root {
+      --sky-blue: #00aaff;
+      --light-blue: #e6f7ff;
+      --text-dark: #222;
+      --text-light: #fff;
+      --btn-primary: #0099e6;
+      --btn-hover: #007acc;
+      --accent-green: #28a745;
+      --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      --gradient-bg: linear-gradient(135deg, #00aaff 0%, #007acc 100%);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #f8f9fa;
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+
+    /* Header */
+    header {
+      background: var(--gradient-bg);
+      color: var(--text-light);
+      padding: 1em 2em;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: var(--shadow);
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-container img {
+      height: 50px;
+      width: auto;
+      border-radius: 50%;
+    }
+
+    .logo-text {
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+
+    nav a {
+      color: var(--text-light);
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--accent-green);
+    }
+
+    .contact-links {
+      display: flex;
+      gap: 1em;
+    }
+
+    .contact-links a {
+      color: var(--text-light);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+
+    .contact-links a:hover {
+      color: var(--accent-green);
+    }
+
+    /* Hero Section - Enhanced with CCTV/Automation Background */
+    .hero {
+      background: 
+        linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+        url('cctv-installation.jpg') no-repeat center center/cover; /* Replace with your CCTV installation image */
+      height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>') repeat;
+      animation: float 20s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+
+    .hero h1 {
+      font-size: 3.5em;
+      margin: 0 0 0.5em;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      animation: fadeInUp 1s ease-out;
+    }
+
+    .hero p {
+      font-size: 1.4em;
+      margin: 0 0 2em;
+      animation: fadeInUp 1s ease-out 0.2s both;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .buttons {
+      display: flex;
+      gap: 1em;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .buttons a {
+      padding: 1em 2em;
+      background: var(--accent-green);
+      color: white;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow);
+      animation: fadeInUp 1s ease-out 0.4s both;
+    }
+
+    .buttons a:hover {
+      background: #218838;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .buttons a.secondary {
+      background: transparent;
+      border: 2px solid white;
+    }
+
+    .buttons a.secondary:hover {
+      background: white;
+      color: var(--text-dark);
+    }
+
+    /* Sections */
+    section {
+      padding: 5em 2em;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 2em;
+      color: var(--sky-blue);
+      font-size: 2.5em;
+      position: relative;
+    }
+
+    h2::after {
+      content: '';
+      display: block;
+      width: 50px;
+      height: 3px;
+      background: var(--gradient-bg);
+      margin: 1em auto;
+      border-radius: 2px;
+    }
+
+    /* Grid Layouts - Services, Products, etc. */
+    .services, .products, .testimonials, .faqs {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2em;
+    }
+
+    .card {
+      border: none;
+      padding: 2em;
+      border-radius: 15px;
+      background: white;
+      box-shadow: var(--shadow);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: var(--gradient-bg);
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .card h3, .card h4 {
+      color: var(--sky-blue);
+      margin-top: 0;
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 1em;
+    }
+
+    .card a {
+      display: inline-block;
+      margin-top: 1em;
+      padding: 0.8em 1.5em;
+      background: var(--btn-primary);
+      color: white;
+      text-decoration: none;
+      border-radius: 25px;
+      transition: background 0.3s ease;
+    }
+
+    .card a:hover {
+      background: var(--btn-hover);
+    }
+
+    /* Form Styling - Enhanced for Quote Section */
+    form {
+      max-width: 600px;
+      margin: auto;
+      background: white;
+      padding: 2em;
+      border-radius: 15px;
+      box-shadow: var(--shadow);
+    }
+
+    form input, form textarea, form select {
+      width: 100%;
+      padding: 1em;
+      margin: 0.5em 0;
+      border: 2px solid #ddd;
+      border-radius: 8px;
+      font-size: 1em;
+      transition: border-color 0.3s ease;
+    }
+
+    form input:focus, form textarea:focus, form select:focus {
+      outline: none;
+      border-color: var(--sky-blue);
+    }
+
+    form button {
+      width: 100%;
+      padding: 1em;
+      background: var(--gradient-bg);
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.1em;
+      font-weight: bold;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    form button:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+
+    /* Login Section */
+    #login {
+      text-align: center;
+      background: var(--light-blue);
+    }
+
+    #login .buttons {
+      justify-content: center;
+      margin-top: 2em;
+    }
+
+    /* Testimonials and FAQs - Creative Touch */
+    .testimonials .card, .faqs .card {
+      background: linear-gradient(135deg, #f0f8ff, #e6f7ff);
+      border-left: 5px solid var(--sky-blue);
+    }
+
+    .testimonials .card p {
+      font-style: italic;
+      font-size: 1.1em;
+    }
+
+    /* Contact Section */
+    #contact {
+      background: var(--light-blue);
+    }
+
+    #contact p {
+      font-size: 1.1em;
+      margin: 1em 0;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--gradient-bg);
+      color: white;
+      padding: 2em;
+      text-align: center;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1em;
+    }
+
+    footer a {
+      color: white;
+      text-decoration: none;
+      margin: 0 0.5em;
+      transition: color 0.3s ease;
+    }
+
+    footer a:hover {
+      color: var(--accent-green);
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      header, footer {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero h1 {
+        font-size: 2.5em;
+      }
+
+      .hero p {
+        font-size: 1.1em;
+      }
+
+      nav {
+        margin: 1em 0;
+      }
+
+      .buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      section {
+        padding: 3em 1em;
+      }
+    }
+
+    /* AI/Creative Element: Subtle Animation for Automation Section */
+    .automation-highlight {
+      position: relative;
+    }
+
+    .automation-highlight::after {
+      content: '🤖 AI-Powered Automation';
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      background: var(--accent-green);
+      color: white;
+      padding: 0.5em 1em;
+      border-radius: 20px;
+      font-size: 0.9em;
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="logo-container">
+      <img src="fft-logo.jpeg" alt="Fix Focal Logo" /> <!-- Replace with your logo -->
+      <div class="logo-text">Fix Focal Technology</div>
+    </div>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#products">Products</a>
+      <a href="#login">Customer Login</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="contact-links">
+      <a href="https://wa.me/919445661329">📞 9445661329 (WhatsApp)</a>
+      <a href="mailto:fixfocalservice@gmail.com">✉️ fixfocalservice@gmail.com</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <h1>Secure Your Space with Fix Focal Technology</h1>
+    <p>Expert CCTV Installation, Automation Solutions & AI-Enhanced Security in Tirunelveli</p>
+    <div class="buttons">
+      <a href="#quote">Get a Free Quote</a>
+      <a href="https://wa.me/919445661329" class="secondary">Contact via WhatsApp</a>
+    </div>
+  </section>
+
+  <!-- About Us -->
+  <section id="about">
+    <h2>About Us</h2>
+    <p style="text-align: center; font-size: 1.2em; max-width: 800px; margin: auto;">
+      <strong>Fix Focal Technology</strong>: Your Trusted Partner for Advanced Security in Tamil Nadu . 
+      We specialize in professional CCTV installations, smart automation systems, and AI-integrated solutions for homes and businesses. 
+      Our certified team ensures reliable, cutting-edge services with a focus on innovation and customer satisfaction.
+    </p>
+  </section>
+
+  <!-- Services -->
+  <section id="services">
+    <h2>Our Services</h2>
+    <div class="services">
+      <div class="card">
+        <h3>CCTV Installation</h3>
+        <p>Professional setup of high-resolution cameras for seamless surveillance. From site survey to full deployment, we cover homes, offices, and industrial sites.</p>
+        <img src="cctv-camera.jpeg" alt="CCTV Installation" style="width:100%; border-radius: 10px;" /> <!-- Add your CCTV image -->
+      </div>
+      <div class="card automation-highlight">
+        <h3>Smart Automation & AI Integration</h3>
+        <p>Transform your space with AI-powered automation for lighting, access control, and predictive security. Voice-activated systems and energy-efficient designs.</p>
+        <img src="automation-ai.jpeg" alt="Automation Device" style="width:100%;height: auto; border-radius: 10px;" /> <!-- Add AI/automation image -->
+      </div>
+      <div class="card">
+        <h3>Maintenance & Repairs</h3>
+        <p>24/7 support for all systems. Regular check-ups, quick repairs, and upgrades to keep your security AI-ready and operational.</p>
+        <img src="maintenance-service.jpeg" alt="Maintenance" style="width:100%; border-radius: 10px;" /> <!-- Add service image -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Products -->
+  <section id="products">
+    <h2>Featured Products</h2>
+    <div class="products">
+      <div class="card">
+        <img src="camera-model1.jpg" alt="Camera Model X1 Pro" style="width:100%; border-radius: 10px;"/>
+        <h3>AI-Enhanced Model X1 Pro</h3>
+        <p>• 4K UHD Resolution • AI Motion Detection • Night Vision • Cloud Remote Access</p>
+        <a href="#quote">Request Quote</a>
+      </div>
+      <div class="card">
+        <img src="automation1.jpg" alt="SmartSwitch A2" style="width:100%; border-radius: 10px;" />
+        <h3>SmartSwitch A2 with AI</h3>
+        <p>• Wi-Fi & Bluetooth Enabled • AI Voice Control (Alexa/Google) • Energy Monitoring • Automation Hub</p>
+        <a href="#quote">Request Quote</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quotation Request -->
+  <section id="quote">
+    <h2>Request a Quote</h2>
+    <form action="mailto:fixfocalservice@gmail.com" method="post" enctype="text/plain">
+      <input type="text" name="Name" placeholder="Your Name" required />
+      <input type="tel" name="Phone" placeholder="Phone Number" required />
+      <input type="email" name="Email" placeholder="Email Address" />
+      <select name="Service/Product Interested">
+        <option value="">Select Service/Product</option>
+        <option value="CCTV Installation">CCTV Installation</option>
+        <option value="Smart Automation & AI">Smart Automation & AI</option>
+        <option value="Maintenance & Repairs">Maintenance & Repairs</option>
+        <option value="AI-Enhanced Camera Model X1 Pro">AI-Enhanced Camera Model X1 Pro</option>
+        <option value="SmartSwitch A2 with AI">SmartSwitch A2 with AI</option>
+      </select>
+      <textarea name="Message/Requirements" placeholder="Describe your requirements (e.g., site size, AI features needed)" rows="4"></textarea>
+      <button type="submit">Send Quote Request</button>
+    </form>
+  </section>
+
+  <!-- Our Work Section -->
+<section id="our-work">
+  <h2>Our Work in Action</h2>
+  <div class="products"> <!-- Reusing your grid layout -->
+    <div class="card">
+      <img src="installation-site.jpeg" alt="Technician installing CCTV on site" style="width:100%; height: auto; border-radius: 10px;" />
+      <h4>On-Site CCTV Installation</h4>
+      <p>Live project installation by Fix Focal team in Tirunelveli. Professional setup with elevated pole-mounted surveillance.</p>
+    </div>
+    <div class="card">
+      <img src="ptz-setup.jpeg" alt="PTZ camera mounted with solar panel" style="width:100%; height: auto; border-radius: 10px;"/>
+      <h4>PTZ Camera Setup</h4>
+      <p>Bench-tested PTZ camera prepared with solar support — ready for field deployment and AI surveillance.</p>
+    </div>
+  </div>
+</section>
+
+
+
+  <!-- Testimonials -->
+  <section class="testimonials">
+    <h2>What Our Clients Say</h2>
+    <div class="services"> <!-- Reuse grid for testimonials -->
+      <div class="card">
+        <p>“The AI features in their CCTV system detected unusual activity before we even noticed. Excellent service!”</p>
+        <strong>– Kumar D., Business Owner</strong>
+      </div>
+      <div class="card">
+        <p>“Fast installation and the automation integrates perfectly with our smart home. Highly recommended for AI security!”</p>
+        <strong>– Priya K., Homeowner</strong>
+      </div>
+      <div class="card">
+        <p>“Reliable maintenance keeps everything running smoothly. Great team for automation upgrades.”</p>
+        <strong>– Raj S., Office Manager</strong>
+      </div>
+    </div>
+  </section
+
+   <!-- FAQs -->
+  <section class="faqs">
+    <h2>FAQs</h2>
+    <div class="card">
+      <h4>How long does installation take?</h4>
+      <p>Most installations are completed within one day depending on the site size.</p>
+    </div>
+    <div class="card">
+      <h4>Do you offer service warranty?</h4>
+      <p>Yes, we offer a 1-year warranty on products and installation.</p>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p><strong>Phone:</strong> <a href="https://wa.me/919445661329">9445661329</a> (WhatsApp Available)</p>
+    <p><strong>Email:</strong> <a href="mailto:fixfocalservice@gmail.com">fixfocalservice@gmail.com</a></p>
+    <p><strong>Address:</strong> Tirunelveli, Tamil Nadu</p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div>Quick Links: <a href="#home">Home</a> | <a href="#services">Services</a> | <a href="#products">Products</a></div>
+    <div>Follow us: 
+      <a href="#">Facebook</a> |
+      <a href="#">Instagram</a>
+    </div>
+  </footer>
+
+</body>
+</html>
